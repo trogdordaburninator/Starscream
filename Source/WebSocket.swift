@@ -205,6 +205,7 @@ open class WebSocket : NSObject, StreamDelegate {
      - Parameter closeCode: The code to send on disconnect. The default is the normal close code for cleanly disconnecting a webSocket.
     */
     open func disconnect(forceTimeout: TimeInterval? = nil, closeCode: UInt16 = CloseCode.normal.rawValue) {
+        guard isConnected else { return }
         switch forceTimeout {
         case .some(let seconds) where seconds > 0:
             let milliseconds = Int(seconds * 1_000)
@@ -321,7 +322,7 @@ open class WebSocket : NSObject, StreamDelegate {
         //NSStream.getStreamsToHostWithName(url.host, port: url.port.integerValue, inputStream: &inputStream, outputStream: &outputStream)
 
         // Disconnect and clean up any existing streams before setting up a new pair
-        disconnectStream(nil)
+        disconnectStream(nil, runDelegate: false)
 
         var readStream: Unmanaged<CFReadStream>?
         var writeStream: Unmanaged<CFWriteStream>?
@@ -376,9 +377,12 @@ open class WebSocket : NSObject, StreamDelegate {
 
         let bytes = UnsafeRawPointer((data as NSData).bytes).assumingMemoryBound(to: UInt8.self)
         var out = timeout * 1_000_000 // wait 5 seconds before giving up
-        writeQueue.addOperation { [weak self] in
-            while !outStream.hasSpaceAvailable {
+        let operation = BlockOperation()
+        operation.addExecutionBlock { [weak self, weak operation] in
+            guard let sOperation = operation else { return }
+            while !outStream.hasSpaceAvailable && !sOperation.isCancelled {
                 usleep(100) // wait until the socket is ready
+                guard !sOperation.isCancelled else { return }
                 out -= 100
                 if out < 0 {
                     self?.cleanupStream()
@@ -388,8 +392,10 @@ open class WebSocket : NSObject, StreamDelegate {
                     return // disconnectStream will be called.
                 }
             }
+            guard !sOperation.isCancelled else { return }
             outStream.write(bytes, maxLength: data.count)
         }
+        writeQueue.addOperation(operation)
     }
 
     /**
@@ -421,14 +427,17 @@ open class WebSocket : NSObject, StreamDelegate {
     /**
      Disconnect the stream object and notifies the delegate.
      */
-    private func disconnectStream(_ error: NSError?) {
+    private func disconnectStream(_ error: NSError?, runDelegate: Bool = true) {
         if error == nil {
             writeQueue.waitUntilAllOperationsAreFinished()
         } else {
             writeQueue.cancelAllOperations()
         }
         cleanupStream()
-        doDisconnect(error)
+        connected = false
+        if runDelegate {
+            doDisconnect(error)
+        }
     }
 
     /**
@@ -447,6 +456,7 @@ open class WebSocket : NSObject, StreamDelegate {
         }
         outputStream = nil
         inputStream = nil
+        fragBuffer = nil
     }
 
     /**
@@ -475,11 +485,11 @@ open class WebSocket : NSObject, StreamDelegate {
             autoreleasepool {
                 let data = inputQueue[0]
                 var work = data
-                if let fragBuffer = fragBuffer {
-                    var combine = NSData(data: fragBuffer) as Data
+                if let buffer = fragBuffer {
+                    var combine = NSData(data: buffer) as Data
                     combine.append(data)
                     work = combine
-                    self.fragBuffer = nil
+                    fragBuffer = nil
                 }
                 let buffer = UnsafeRawPointer((work as NSData).bytes).assumingMemoryBound(to: UInt8.self)
                 let length = work.count
@@ -500,19 +510,10 @@ open class WebSocket : NSObject, StreamDelegate {
         let code = processHTTP(buffer, bufferLen: bufferLen)
         switch code {
         case 0:
-            isConnecting = false
-            connected = true
-            didDisconnect = false
-            guard canDispatch else {return}
-            callbackQueue.async { [weak self] in
-                guard let s = self else { return }
-                s.onConnect?()
-                s.delegate?.websocketDidConnect(socket: s)
-                s.notificationCenter.post(name: NSNotification.Name(WebsocketDidConnectNotification), object: self)
-            }
+            break
         case -1:
             fragBuffer = Data(bytes: buffer, count: bufferLen)
-        break // do nothing, we are going to collect more data
+            break // do nothing, we are going to collect more data
         default:
             doDisconnect(errorWithDetail("Invalid HTTP upgrade", code: UInt16(code)))
         }
@@ -540,6 +541,17 @@ open class WebSocket : NSObject, StreamDelegate {
             let code = validateResponse(buffer, bufferLen: totalSize)
             if code != 0 {
                 return code
+            }
+            isConnecting = false
+            connected = true
+            didDisconnect = false
+            if canDispatch {
+                callbackQueue.async { [weak self] in
+                    guard let s = self else { return }
+                    s.onConnect?()
+                    s.delegate?.websocketDidConnect(socket: s)
+                    s.notificationCenter.post(name: NSNotification.Name(WebsocketDidConnectNotification), object: self)
+                }
             }
             totalSize += 1 //skip the last \n
             let restSize = bufferLen - totalSize
@@ -848,9 +860,11 @@ open class WebSocket : NSObject, StreamDelegate {
      Used to write things to the stream
      */
     private func dequeueWrite(_ data: Data, code: OpCode, writeCompletion: (() -> ())? = nil) {
-        writeQueue.addOperation { [weak self] in
+        let operation = BlockOperation()
+        operation.addExecutionBlock { [weak self, weak operation] in
             //stream isn't ready, let's wait
             guard let s = self else { return }
+            guard let sOperation = operation else { return }
             var offset = 2
             let dataLength = data.count
             let frame = NSMutableData(capacity: dataLength + s.MaxFrameSize)
@@ -877,7 +891,7 @@ open class WebSocket : NSObject, StreamDelegate {
                 offset += 1
             }
             var total = 0
-            while true {
+            while !sOperation.isCancelled {
                 guard let outStream = s.outputStream else { break }
                 let writeBuffer = UnsafeRawPointer(frame!.bytes+total).assumingMemoryBound(to: UInt8.self)
                 let len = outStream.write(writeBuffer, maxLength: offset-total)
@@ -904,8 +918,8 @@ open class WebSocket : NSObject, StreamDelegate {
                     break
                 }
             }
-
         }
+        writeQueue.addOperation(operation)
     }
 
     /**
