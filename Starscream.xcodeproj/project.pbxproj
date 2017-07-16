@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		091277A11BD673A70003036D /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 091277971BD673A70003036D /* Starscream.framework */; };
+		091277A11BD673A70003036D /* StarscreamSocketIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 091277971BD673A70003036D /* StarscreamSocketIO.framework */; };
 		5C1360021C473BEF00AA3A01 /* SSLSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C135FFF1C473BEF00AA3A01 /* SSLSecurity.swift */; };
 		5C1360031C473BEF00AA3A01 /* SSLSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C135FFF1C473BEF00AA3A01 /* SSLSecurity.swift */; };
 		5C1360041C473BEF00AA3A01 /* SSLSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C135FFF1C473BEF00AA3A01 /* SSLSecurity.swift */; };
@@ -41,9 +41,9 @@
 		D88EAF8B1ED4E88D004FE2C3 /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88EAF7E1ED4DFB5004FE2C3 /* Compression.swift */; };
 		D88EAF8E1ED4E92E004FE2C3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D88EAF8D1ED4E92E004FE2C3 /* libz.tbd */; };
 		D88EAF911ED4E949004FE2C3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D88EAF901ED4E949004FE2C3 /* libz.tbd */; };
-		D88EAF921ED4E95D004FE2C3 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3E79E619D48B7F006071F7 /* Starscream.framework */; };
+		D88EAF921ED4E95D004FE2C3 /* StarscreamSocketIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3E79E619D48B7F006071F7 /* StarscreamSocketIO.framework */; };
 		D88EAF931ED4E975004FE2C3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D88EAF811ED4DFD3004FE2C3 /* libz.tbd */; };
-		D9C3E36A19E48FF1009FC285 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C3E35F19E48FF1009FC285 /* Starscream.framework */; };
+		D9C3E36A19E48FF1009FC285 /* StarscreamSocketIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C3E35F19E48FF1009FC285 /* StarscreamSocketIO.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,14 +64,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		091277971BD673A70003036D /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		091277971BD673A70003036D /* StarscreamSocketIO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StarscreamSocketIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		091277A01BD673A70003036D /* Starscream tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Starscream tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C135FFF1C473BEF00AA3A01 /* SSLSecurity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSLSecurity.swift; path = Source/SSLSecurity.swift; sourceTree = SOURCE_ROOT; };
 		5C1360001C473BEF00AA3A01 /* Starscream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Starscream.h; path = Source/Starscream.h; sourceTree = SOURCE_ROOT; };
 		5C1360011C473BEF00AA3A01 /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = Source/WebSocket.swift; sourceTree = SOURCE_ROOT; };
 		5C13600B1C473BFE00AA3A01 /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-tvOS.plist"; path = "Source/Info-tvOS.plist"; sourceTree = SOURCE_ROOT; };
 		5C13600C1C473BFE00AA3A01 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = SOURCE_ROOT; };
-		6B3E79E619D48B7F006071F7 /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B3E79E619D48B7F006071F7 /* StarscreamSocketIO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StarscreamSocketIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B3E79F119D48B7F006071F7 /* Starscream iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Starscream iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B3E7A0019D48C2F006071F7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		742419BB1DC6BDBA003ACE43 /* StarscreamTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StarscreamTests.swift; path = StarscreamTests/StarscreamTests.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 		D88EAF831ED4E7D8004FE2C3 /* CompressionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompressionTests.swift; sourceTree = "<group>"; };
 		D88EAF8D1ED4E92E004FE2C3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
 		D88EAF901ED4E949004FE2C3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS10.2.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
-		D9C3E35F19E48FF1009FC285 /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9C3E35F19E48FF1009FC285 /* StarscreamSocketIO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StarscreamSocketIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C3E36919E48FF1009FC285 /* Starscream OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Starscream OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -99,7 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				091277A11BD673A70003036D /* Starscream.framework in Frameworks */,
+				091277A11BD673A70003036D /* StarscreamSocketIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +116,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D88EAF931ED4E975004FE2C3 /* libz.tbd in Frameworks */,
-				D88EAF921ED4E95D004FE2C3 /* Starscream.framework in Frameworks */,
+				D88EAF921ED4E95D004FE2C3 /* StarscreamSocketIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9C3E36A19E48FF1009FC285 /* Starscream.framework in Frameworks */,
+				D9C3E36A19E48FF1009FC285 /* StarscreamSocketIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,11 +153,11 @@
 		6B3E79E719D48B7F006071F7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6B3E79E619D48B7F006071F7 /* Starscream.framework */,
+				6B3E79E619D48B7F006071F7 /* StarscreamSocketIO.framework */,
 				6B3E79F119D48B7F006071F7 /* Starscream iOSTests.xctest */,
-				D9C3E35F19E48FF1009FC285 /* Starscream.framework */,
+				D9C3E35F19E48FF1009FC285 /* StarscreamSocketIO.framework */,
 				D9C3E36919E48FF1009FC285 /* Starscream OSXTests.xctest */,
-				091277971BD673A70003036D /* Starscream.framework */,
+				091277971BD673A70003036D /* StarscreamSocketIO.framework */,
 				091277A01BD673A70003036D /* Starscream tvOSTests.xctest */,
 			);
 			name = Products;
@@ -261,7 +261,7 @@
 			);
 			name = "Starscream tvOS";
 			productName = StarscreamTv;
-			productReference = 091277971BD673A70003036D /* Starscream.framework */;
+			productReference = 091277971BD673A70003036D /* StarscreamSocketIO.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		0912779F1BD673A70003036D /* Starscream tvOSTests */ = {
@@ -297,7 +297,7 @@
 			);
 			name = "Starscream iOS";
 			productName = Starscream;
-			productReference = 6B3E79E619D48B7F006071F7 /* Starscream.framework */;
+			productReference = 6B3E79E619D48B7F006071F7 /* StarscreamSocketIO.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		6B3E79F019D48B7F006071F7 /* Starscream iOSTests */ = {
@@ -332,7 +332,7 @@
 			);
 			name = "Starscream OSX";
 			productName = StarscreamOSX;
-			productReference = D9C3E35F19E48FF1009FC285 /* Starscream.framework */;
+			productReference = D9C3E35F19E48FF1009FC285 /* StarscreamSocketIO.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		D9C3E36819E48FF1009FC285 /* Starscream OSXTests */ = {
@@ -554,7 +554,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vluxe.Starscream;
-				PRODUCT_NAME = Starscream;
+				PRODUCT_NAME = StarscreamSocketIO;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -580,7 +580,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vluxe.Starscream;
-				PRODUCT_NAME = Starscream;
+				PRODUCT_NAME = StarscreamSocketIO;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -740,7 +740,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vluxe.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = Starscream;
+				PRODUCT_NAME = StarscreamSocketIO;
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -765,7 +765,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vluxe.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = Starscream;
+				PRODUCT_NAME = StarscreamSocketIO;
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -831,7 +831,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vluxe.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = Starscream;
+				PRODUCT_NAME = StarscreamSocketIO;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -854,7 +854,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vluxe.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = Starscream;
+				PRODUCT_NAME = StarscreamSocketIO;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
