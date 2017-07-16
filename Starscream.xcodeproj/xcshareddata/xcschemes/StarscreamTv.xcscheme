@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "091277961BD673A70003036D"
-            BuildableName = "Starscream.framework"
+            BuildableName = "StarscreamSocketIO.framework"
             BlueprintName = "Starscream tvOS"
             ReferencedContainer = "container:Starscream.xcodeproj">
          </BuildableReference>
@@ -79,7 +79,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "091277961BD673A70003036D"
-            BuildableName = "Starscream.framework"
+            BuildableName = "StarscreamSocketIO.framework"
             BlueprintName = "Starscream tvOS"
             ReferencedContainer = "container:Starscream.xcodeproj">
          </BuildableReference>
@@ -97,7 +97,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "091277961BD673A70003036D"
-            BuildableName = "Starscream.framework"
+            BuildableName = "StarscreamSocketIO.framework"
             BlueprintName = "Starscream tvOS"
             ReferencedContainer = "container:Starscream.xcodeproj">
          </BuildableReference>
