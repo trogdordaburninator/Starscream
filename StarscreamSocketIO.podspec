@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/nuclearace/Starscream"
   s.license      = 'Apache License, Version 2.0'
   s.author       = {'Dalton Cherry' => 'http://daltoniam.com', 'Austin Cherry' => 'http://austincherry.me'}
-  s.source       = { :git => 'https://github.com/nuclearace/Starscream.git',  :tag => "v8.0.0"}
+  s.source       = { :git => 'https://github.com/nuclearace/Starscream.git',  :tag => "8.0.0"}
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.10'
   s.tvos.deployment_target = '9.0'
