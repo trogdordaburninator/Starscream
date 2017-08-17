@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.10'
   s.tvos.deployment_target = '9.0'
   s.source_files = 'Source/*.swift'
-  s.requires_arc = 'true'
+  s.requires_arc = true
   s.libraries    = 'z'
   s.pod_target_xcconfig = {
   'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/StarscreamSocketIO/zlib',
