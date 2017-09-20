@@ -1,3 +1,4 @@
+// swift-tools-version:4.0
 //
 //  Package.Swift
 //  Starscream
@@ -23,10 +24,12 @@ import PackageDescription
 let package = Package(
     name: "StarscreamSocketIO",
     dependencies: [
-        .Package(url: "https://github.com/daltoniam/zlib-spm.git",
-                 majorVersion: 1, minor: 1),
-        .Package(url: "https://github.com/daltoniam/common-crypto-spm",
-                 majorVersion: 1, minor: 1),
+        .package(url: "https://github.com/daltoniam/zlib-spm.git",
+                 from: "1.0.0"),
+        .package(url: "https://github.com/daltoniam/common-crypto-spm",
+                 from: "1.0.0"),
         ],
-    exclude: ["Tests", "examples"]
+    targets: [
+        .target(name: "StarscreamSocketIO", path: "./Source", exclude: ["Tests", "examples"])
+    ]
 )
