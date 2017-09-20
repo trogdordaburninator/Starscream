@@ -23,6 +23,9 @@ import PackageDescription
 
 let package = Package(
     name: "StarscreamSocketIO",
+    products: [
+        .library(name: "StarscreamSocketIO", targets: ["StarscreamSocketIO"])
+    ],
     dependencies: [
         .package(url: "https://github.com/daltoniam/zlib-spm.git",
                  from: "1.0.0"),
