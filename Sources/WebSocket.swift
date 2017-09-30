@@ -21,7 +21,7 @@
 
 import Foundation
 import CoreFoundation
-import SSSCommonCrypto
+import SSCommonCrypto
 
 public let WebsocketDidConnectNotification = "WebsocketDidConnectNotification"
 public let WebsocketDidDisconnectNotification = "WebsocketDidDisconnectNotification"

@@ -1,9 +1,9 @@
-module SSSCZLib [system] {
+module SSCZLib [system] {
     header "include.h"
     link "z"
     export *
 }
-module SSSCommonCrypto [system] {
+module SSCommonCrypto [system] {
     header "include.h"
     export *
 }
