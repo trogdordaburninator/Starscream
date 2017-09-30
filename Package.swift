@@ -33,6 +33,6 @@ let package = Package(
                  from: "1.0.0"),
         ],
     targets: [
-        .target(name: "StarscreamSocketIO", path: "./Source", exclude: ["Tests", "examples"])
+        .target(name: "StarscreamSocketIO", path: "./Sources", exclude: ["Tests", "examples"])
     ]
 )
